@@ -1,25 +1,27 @@
 <template>
   <div>
-    <!-- <app-header></app-header> -->
-    <!-- <hello-world></hello-world> -->
-    <HelloWorld msg="Welcome to Your Vue.js"></HelloWorld>
+    <app-header
+      v-bind:propsdata="str"
+      v-on:renew="renewStr">
+    </app-header>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import AppHeaderVue from './components/AppHeader.vue'
-
+import AppHeader from './components/AppHeader.vue'
 export default {
-  data: function() {
+  data: function(){
     return {
-      str: 'hi'
+      str: 'Header'
     }
   },
   components: {
-    // 'app-header' : AppHeaderVue
-    HelloWorld,
-    'hello-world' : HelloWorld,
+    'app-header': AppHeader
+  },
+  methods: {
+    renewStr: function(){
+      this.str = 'hi'
+    }
   }
 }
 </script>
